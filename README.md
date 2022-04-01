@@ -1,1 +1,16 @@
-# asistente-virtual
+1)https://youtu.be/1HAXbEzsiAk
+2)https://www.youtube.com/watch?v=_mLh-fVwBV0
+3)https://www.youtube.com/watch?v=rDfjKXrob44
+4)https://youtu.be/qGIdivBFghY
+5)https://youtu.be/p2CwlCBipV0
+6)https://youtu.be/Ht-PpvTyUog
+7)https://youtu.be/bHHE4AtRX1k
+8)https://www.youtube.com/watch?v=x1SuBSeB4qQ
+9)https://youtu.be/ldiPOC7GST0
+10)https://www.youtube.com/watch?v=Q7TKelyjIzQ
+11)https://www.youtube.com/watch?v=Ayvbbq3IEXc
+12)https://www.youtube.com/watch?v=kXMv1PEeNvA
+13)https://www.youtube.com/watch?v=HZAPn93le3I
+14)https://www.youtube.com/watch?v=yxWip931jmo
+15)https://www.youtube.com/watch?v=bcOQZj-CnXI
+16)https://youtu.be/1CEzOFiNhog
