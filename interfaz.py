@@ -1,47 +1,73 @@
 from importlib.metadata import files
 import speech_recognition as sr
 import subprocess as sub
-import pyttsx3, pywhatkit, wikipedia, datetime, keyboard, colores, os
-from pygame import mixer 
+import pyttsx3
+import pywhatkit
+import wikipedia
+import datetime
+import keyboard
+import colores
+import os
+from tkinter import *
+from PIL import Image, ImageTk
+from pygame import mixer
+import threading as tr
+
+main_window = Tk()
+main_window.title("emma AI")
+
+main_window.geometry("800x500")
+main_window.resizable(0,0)
+main_window.configure(bg='#4286f4')
+
+label_title = Label(main_window, text="Emma AI", bg= "#C4E0E5", fg="#373B44",
+                            font=('Times New Roman', 30, 'bold'))
+label_title.pack(pady= 10)
+
+emma_photo = ImageTk.PhotoImage(Image.open("emma-prototipo.jpeg"))
+window_photo = Label(main_window, image=emma_photo)
+window_photo.pack(pady= 5)
 
 name = "emma"
 Listener = sr.Recognizer()
 engine = pyttsx3.init()
- 
-voices =  engine.getProperty('voices') 
+
+voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
 engine.setProperty('rate', 145)
 
-sites={
-            'google':'google.com',
-            'youtube':'youtube.com',
-            'facebook':'facebook.com',
-            'whatsapp':'whatsapp.com',
-            'twitter':'twitter.com',
-            'instagram':'instagram.com'
+sites = {
+    'google': 'google.com',
+    'youtube': 'youtube.com',
+    'facebook': 'facebook.com',
+    'whatsapp': 'whatsapp.com',
+    'twitter': 'twitter.com',
+    'instagram': 'instagram.com'
 
-        }
-files={
-            'mensaje':'Luca.Llop_Mensaje-Oculto.xlsx',
-            'unidades':'Luca-Llop_UNIDADES DE ALMACENAMIENTO-Tarea2.docx',
-            'evolucion':'SISTEMAS OPERATIVOS - TP N°2 - Evolución de versiones de SO -.docx'
-
-        }
-programas = {
-            'chrome': r"C:\Program Files\Google\Chrome\Application",
-            'visual': r"C:\Program Files\Microsoft VS Code",
-            'word': r"C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
 }
+files = {
+    'mensaje': 'Luca.Llop_Mensaje-Oculto.xlsx',
+    'unidades': 'Luca-Llop_UNIDADES DE ALMACENAMIENTO-Tarea2.docx',
+    'evolucion': 'SISTEMAS OPERATIVOS - TP N°2 - Evolución de versiones de SO -.docx'
+
+}
+programas = {
+    'chrome': r"C:\Program Files\Google\Chrome\Application",
+    'visual': r"C:\Program Files\Microsoft VS Code",
+    'word': r"C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
+}
+
 
 def talk(text):
     engine.say(text)
     engine.runAndWait()
 
-def listen(): 
-    try: 
-        with sr.Microphone() as source: 
-            print ("Escuchando...")
-            pc = Listener.listen(source) 
+
+def listen():
+    try:
+        with sr.Microphone() as source:
+            print("Escuchando...")
+            pc = Listener.listen(source)
             rec = Listener.recognize_google(pc, language="es")
             rec = rec.lower()
             if name in rec:
@@ -50,20 +76,21 @@ def listen():
         pass
     return rec
 
+
 def run_emma():
     while True:
-        rec = listen() 
-        if 'reproduce' in rec: 
+        rec = listen()
+        if 'reproduce' in rec:
             music = rec.replace('reproduce', '')
-            print ("Reproduciendo " + music)
-            talk ("Reproduciendo" + music)
+            print("Reproduciendo " + music)
+            talk("Reproduciendo" + music)
             pywhatkit.playonyt(music)
-            
+
         elif 'busca' in rec:
-            search = rec.replace('busca','')
+            search = rec.replace('busca', '')
             wikipedia.set_lang("es")
             wiki = wikipedia.summary(search, 1)
-            print(search +": " + wiki)
+            print(search + ": " + wiki)
             talk(wiki)
 
         elif 'alarma' in rec:
@@ -112,6 +139,7 @@ def run_emma():
             talk('Adios!')
             break
 
+
 def write(f):
     talk("¿Que quieres que escriba?")
     rec_write = listen()
@@ -120,5 +148,4 @@ def write(f):
     talk("Listo, puedes revisarlo")
     sub.Popen("nota.txt", shell=True)
 
-if __name__ == '__main__': 
-    run_emma()
+main_window.mainloop()
