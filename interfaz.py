@@ -21,9 +21,21 @@ main_window.geometry("800x500")
 main_window.resizable(0,0)
 main_window.configure(bg='#4286f4')
 
+comandos = """
+            - Reproduce...
+            - Busca...
+            - Abre...
+            - Alarma...
+            - Archivo...
+            - Colores...
+            - Termina...
+"""
+
 label_title = Label(main_window, text="Emma AI", bg= "#C4E0E5", fg="#373B44",
                             font=('Times New Roman', 30, 'bold'))
 label_title.pack(pady= 10)
+
+canvas_comandos = Canvas(bg= "#6be585", height=450, width=200)
 
 emma_photo = ImageTk.PhotoImage(Image.open("emma-prototipo.jpeg"))
 window_photo = Label(main_window, image=emma_photo)
@@ -159,5 +171,9 @@ def write(f):
 button_voice_mx = Button(main_window, text="Voz Mexico", fg="white", bg="#24FE41",
                             font=("Times New Roman", 14, "bold"), command=mexican_voice)
 button_voice_mx.place(x=400, y=100, width=100, height=300)
+
+button_listen = Button(main_window, text="Escuchar", fg="white", bg="#134E5E",
+                        font=("Times New Roman", 15, "bold"),width=120, command=run_emma)
+button_listen.pack(pady=10)
 
 main_window.mainloop()
