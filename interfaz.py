@@ -1,4 +1,5 @@
 from importlib.metadata import files
+from tkinter import font
 import speech_recognition as sr
 import subprocess as sub
 import pyttsx3
@@ -27,6 +28,13 @@ label_title.pack(pady= 10)
 emma_photo = ImageTk.PhotoImage(Image.open("emma-prototipo.jpeg"))
 window_photo = Label(main_window, image=emma_photo)
 window_photo.pack(pady= 5)
+
+def mexican_voice():
+    change_voice(0)
+    pass
+def change_voice(id):
+    engine.setProperty('voice', voices[id].id)
+    engine.setProperty('rate', 145) 
 
 name = "emma"
 Listener = sr.Recognizer()
@@ -147,5 +155,9 @@ def write(f):
     f.close()
     talk("Listo, puedes revisarlo")
     sub.Popen("nota.txt", shell=True)
+
+button_voice_mx = Button(main_window, text="Voz Mexico", fg="white", bg="#24FE41",
+                            font=("Times New Roman", 14, "bold"), command=mexican_voice)
+button_voice_mx.place(x=400, y=100, width=100, height=300)
 
 main_window.mainloop()
