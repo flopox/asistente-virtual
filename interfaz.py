@@ -36,6 +36,11 @@ label_title = Label(main_window, text="Emma AI", bg= "#C4E0E5", fg="#373B44",
 label_title.pack(pady= 10)
 
 canvas_comandos = Canvas(bg= "#6be585", height=450, width=200)
+canvas_comandos.place(x=0, y=0)
+canvas_comandos.create_text(90, 80, text= comandos, fill="#434343", font= 'Times New Roman')
+
+text_info = Text(main_window, bg="6be585", fg="434334")
+text_info.place(x=0, y=180, height= 280, width= 195)
 
 emma_photo = ImageTk.PhotoImage(Image.open("emma-prototipo.jpeg"))
 window_photo = Label(main_window, image=emma_photo)
@@ -56,32 +61,20 @@ voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
 engine.setProperty('rate', 145)
 
-sites = {
-    'google': 'google.com',
-    'youtube': 'youtube.com',
-    'facebook': 'facebook.com',
-    'whatsapp': 'whatsapp.com',
-    'twitter': 'twitter.com',
-    'instagram': 'instagram.com'
-
-}
-files = {
-    'mensaje': 'Luca.Llop_Mensaje-Oculto.xlsx',
-    'unidades': 'Luca-Llop_UNIDADES DE ALMACENAMIENTO-Tarea2.docx',
-    'evolucion': 'SISTEMAS OPERATIVOS - TP N°2 - Evolución de versiones de SO -.docx'
-
-}
-programas = {
-    'chrome': r"C:\Program Files\Google\Chrome\Application",
-    'visual': r"C:\Program Files\Microsoft VS Code",
-    'word': r"C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
-}
-
+sites = dict()
+files = dict()
+programas = dict()
 
 def talk(text):
     engine.say(text)
     engine.runAndWait()
 
+def leeyresponde():
+    text= text_info.get("1.0", "end")
+    talk(text)
+
+def write_text(text_wiki):
+    text_info.insert(INSERT, text_wiki)
 
 def listen():
     try:
@@ -110,8 +103,9 @@ def run_emma():
             search = rec.replace('busca', '')
             wikipedia.set_lang("es")
             wiki = wikipedia.summary(search, 1)
-            print(search + ": " + wiki)
             talk(wiki)
+            write_text(search + ": " + wiki)
+            break
 
         elif 'alarma' in rec:
             num = rec.replace('alarma', '')
@@ -168,6 +162,10 @@ def write(f):
     talk("Listo, puedes revisarlo")
     sub.Popen("nota.txt", shell=True)
 
+def open_w_files():
+    pass
+
+
 button_voice_mx = Button(main_window, text="Voz Mexico", fg="white", bg="#24FE41",
                             font=("Times New Roman", 14, "bold"), command=mexican_voice)
 button_voice_mx.place(x=400, y=100, width=100, height=300)
@@ -175,5 +173,21 @@ button_voice_mx.place(x=400, y=100, width=100, height=300)
 button_listen = Button(main_window, text="Escuchar", fg="white", bg="#134E5E",
                         font=("Times New Roman", 15, "bold"),width=120, command=run_emma)
 button_listen.pack(pady=10)
+
+button_speak_mx = Button(main_window, text="Hablar", fg="white", bg="#00e0f0",
+                            font=("Times New Roman", 14, "bold"), command=leeyresponde)
+button_speak_mx.place(x=400, y=200, width=100, height=300)
+
+
+button_add_files = Button(main_window, text="Agregar archivos", fg="white", bg="#00e0f0",
+                            font=("Times New Roman", 14, "bold"), command=open_w_files)
+button_add_files.place(x=400, y=240, width=120, height=300)
+button_add_apps = Button(main_window, text="Agregar apps", fg="white", bg="#00e0f0",
+                            font=("Times New Roman", 14, "bold"), command=open_w_apps)
+button_add_apps.place(x=400, y=280, width=120, height=300)
+button_add_pages = Button(main_window, text="Agregar paginas", fg="white", bg="#00e0f0",
+                            font=("Times New Roman", 14, "bold"), command=open_w_pages)
+button_add_pages.place(x=400, y=320, width=120, height=300)
+
 
 main_window.mainloop()
