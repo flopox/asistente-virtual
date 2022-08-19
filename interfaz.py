@@ -19,7 +19,7 @@ main_window.title("emma AI")
 
 main_window.geometry("800x500")
 main_window.resizable(0,0)
-main_window.configure(bg='#4286f4')
+main_window.configure(bg='#1EA274')
 
 comandos = """
             - Reproduce...
