@@ -164,7 +164,10 @@ def write(f):
 
 def open_w_files():
     pass
-
+def open_w_apps():
+    pass
+def open_w_pages():
+    pass
 
 button_voice_mx = Button(main_window, text="Voz Mexico", fg="white", bg="#24FE41",
                             font=("Times New Roman", 14, "bold"), command=mexican_voice)
