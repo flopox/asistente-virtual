@@ -21,7 +21,7 @@ main_window.geometry("800x500")
 main_window.resizable(0,0)
 main_window.configure(bg='#1EA274')
 
-comandos = """
+comandos =  """
             - Reproduce...
             - Busca...
             - Abre...
@@ -29,9 +29,9 @@ comandos = """
             - Archivo...
             - Colores...
             - Termina...
-"""
+            """
 
-label_title = Label(main_window, text="Emma AI", bg= "#C4E0E5", fg="#373B44",
+label_title = Label(main_window, text="Emma IA", bg= "#C4E0E5", fg="#373B44",
                             font=('Times New Roman', 30, 'bold'))
 label_title.pack(pady= 10)
 
@@ -53,7 +53,7 @@ def change_voice(id):
     engine.setProperty('voice', voices[id].id)
     engine.setProperty('rate', 145) 
 
-name = "emma"
+name = "Emma"
 Listener = sr.Recognizer()
 engine = pyttsx3.init()
 
