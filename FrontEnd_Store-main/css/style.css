@@ -67,7 +67,12 @@ h3{
     display: flex;
     justify-content: center;
 }
+.aHeader__logo {
+    width: 400px;
+}
+
 .header__logo{
+    min-width: 300px;
     margin: 3rem;
 }
 
