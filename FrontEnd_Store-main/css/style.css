@@ -7,8 +7,6 @@
     --negro: rgb(0, 0, 0);
     --fuentePrincipal: font-family: 'Krub', sans-serif;
     font-family: 'Noto Sans', sans-serif;
-    font-family: 'Staatliches', cursive;
-
 }
 
 html{
@@ -38,7 +36,7 @@ a{
 }
 
 img{
-    width: 100%;
+    width: 75%;
 }
 
 .contenedor{
@@ -72,7 +70,7 @@ h3{
 }
 
 .header__logo{
-    min-width: 300px;
+    min-width: 500px;
     margin: 3rem;
 }
 
@@ -179,7 +177,7 @@ h3{
 .nosotros__img{
     grid-row: 1 / 2;
 }
-@media (min-width: 768px) { 
+@media (min-width: 1000px) { 
     .nosotros__img{
         grid-column: 2 / 3;
     }
@@ -191,7 +189,7 @@ h3{
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
 }
-@media (width: 40px){ 
+@media (min-width: 10px){ 
     .bloques{
         grid-template-columns: repeat(4, 1fr);
     }
