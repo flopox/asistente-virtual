@@ -12,26 +12,9 @@ voices =  engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
 engine.setProperty('rate', 145)
 
-sites={
-            'google':'google.com',
-            'youtube':'youtube.com',
-            'facebook':'facebook.com',
-            'whatsapp':'whatsapp.com',
-            'twitter':'twitter.com',
-            'instagram':'instagram.com'
-
-        }
-files={
-            'mensaje':'Luca.Llop_Mensaje-Oculto.xlsx',
-            'unidades':'Luca-Llop_UNIDADES DE ALMACENAMIENTO-Tarea2.docx',
-            'evolucion':'SISTEMAS OPERATIVOS - TP N°2 - Evolución de versiones de SO -.docx'
-
-        }
-programas = {
-            'chrome': r"C:\Program Files\Google\Chrome\Application",
-            'visual': r"C:\Program Files\Microsoft VS Code",
-            'word': r"C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
-}
+sites= dict()
+files= dict()
+programas = dict ()
 
 def talk(text):
     engine.say(text)
