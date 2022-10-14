@@ -1,3 +1,4 @@
+from cProfile import label
 from importlib.metadata import files
 from tkinter import font
 import speech_recognition as sr
@@ -163,7 +164,23 @@ def write(f):
     sub.Popen("nota.txt", shell=True)
 
 def open_w_files():
-    pass
+    window_files = Toplevel()
+    window_files.title("Agrega archivos:")
+    window_files.configure(bg="#434343")
+    window_files.geometry("300x200")
+    window_files.resizable(0,0)
+    main_window.eval(f'tk::PlaceWindow{str(window_files)}center')
+
+    title_label = Label(window_files, text="Agrega una archivo: ", fg="white", bg="#434343", font=('Arial', 15, 'bold'))
+    title_label.pack(pady=3)
+    name_label = Label(window_files, text="Nombre del archivo: ", fg="white", bg="#434343", font=('Arial', 10, 'bold'))
+    name_label.pack(pady=2)
+
+    namefile_entry = Entry(window_files, width=35)
+    namefile_entry.pack(pady=1)
+
+    save_button = Button(window_files, text="Guardar", bg="white", width=8, height=1)
+    save_button.pack(pady=4)
 def open_w_apps():
     pass
 def open_w_pages():
