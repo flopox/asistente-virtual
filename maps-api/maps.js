@@ -13,13 +13,6 @@ function initMap() {                                        //creamos la funcion
     const autocomplete = new google.maps.places.Autocomplete(place_input, {
        strictBounds: true,
     });                                                     //Lineas de codigo relacionado al autocompletar una busqueda en la barra superior(la funcion "strictBounds" cumple la funcion de autocompletar con zonas dentro del area que se muestra en pantalla)
-    
-    activateBtn.addEventListener("click", () => {
-        autocomplete.bindTo("bounds", map);
-    });
-    desactivateBtn.addEventListener("click", () => {
-        autocomplete.unbind("bounds");
-    });
 
     autocomplete.bindTo("bounds", map);                     //Delimita el área en el que se busca, si alguien no se encuentra en Argentina y busca Cordoba, el autocompletado no deberia mostrar a Cordoba, Argentina como primera opcion
     autocomplete.addListener("place_changed", ()=>{         //Funciones de autcompletado que cambian la ubicacion y el zoom a la sona seleccionada(previamente solo marcaba el lugar que se buscaba, ahora ademas te dirige hacia alli)
