@@ -1,18 +1,18 @@
 from cProfile import label
 from importlib.metadata import files
 from tkinter import font
-import speech_recognition as sr
+import speech_recognition as sr         #pip install speechrecognition
 import subprocess as sub
-import pyttsx3
-import pywhatkit
-import wikipedia
-import datetime
-import keyboard
+import pyttsx3                          #pip install pyttsx3
+import pywhatkit                        #pip install pywhatkit
+import wikipedia                        #pip install wikipedia
+import datetime                         #pip install datetime
+import keyboard                         #pip install keyboard
 import colores
 import os
 from tkinter import *
 from PIL import Image, ImageTk
-from pygame import mixer
+from pygame import mixer                #pip install pygame
 import threading as tr
 
 main_window = Tk()
