@@ -147,7 +147,8 @@ def abre(rec):
                 talk(f'Abriendo {task}')
                 os.startfile(programs[task])
     else:
-        talk("Parece que aún no has agregado nada al respecto, \ no seas boludo y agrega la app o pagina antes de pedirla!")
+        talk("Parece que aún no has agregado nada al respecto, \
+            no seas boludo y agrega la app o pagina antes de pedirla!")
 
 def archivo(rec):
     file = rec.replace('archivo', '').strip()
