@@ -1,5 +1,5 @@
-import cv2
-import numpy as np
+import cv2            #pip install opencv-python
+import numpy as np    #pip install numpy
 
 def draw(mask, color, frame_c):
   contours,_ = cv2.findContours(mask, cv2.RETR_EXTERNAL,

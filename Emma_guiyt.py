@@ -1,15 +1,15 @@
-import speech_recognition as sr
+import speech_recognition as sr         #pip install speechrecognition
 import subprocess as sub
-import pyttsx3
-import pywhatkit
-import wikipedia
-import datetime
-import keyboard
+import pyttsx3                          #pip install pyttsx3
+import pywhatkit                        #pip install pywhatkit
+import wikipedia                        #pip install wikipedia
+import datetime                         #pip install datetime
+import keyboard                         #pip install keyboard
 import cam
 import os
 from tkinter import *
 from PIL import Image, ImageTk
-from pygame import mixer
+from pygame import mixer                #pip install pygame --pre
 import threading as tr
 import whatsapp as whapp
 import serial as ser
