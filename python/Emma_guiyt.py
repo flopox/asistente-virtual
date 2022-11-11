@@ -1,3 +1,5 @@
+#Si desea que el programa actue por comando de voz tambien deberá instalar pyaudio
+#pip install pyaudio
 import speech_recognition as sr         #pip install speechrecognition
 import subprocess as sub
 import pyttsx3                          #pip install pyttsx3
@@ -5,7 +7,7 @@ import pywhatkit                        #pip install pywhatkit
 import wikipedia                        #pip install wikipedia
 import datetime                         #pip install datetime
 import keyboard                         #pip install keyboard
-import cam
+import cam                              #importamos el archivo cam.py
 import os
 from tkinter import *
 from PIL import Image, ImageTk
@@ -43,7 +45,7 @@ canvas_comandos.create_text(90, 80, text=comandos,
 text_info = Text(main_window, bg="#00B4DB", fg="black")
 text_info.place(x=0, y=170, height=280, width=198)
 
-Emma_photo = ImageTk.PhotoImage(Image.open("emma-prototipo.jpeg"))
+Emma_photo = ImageTk.PhotoImage(Image.open("./img/emma-prototipo.jpeg"))
 window_photo = Label(main_window, image=Emma_photo)
 window_photo.pack(pady=10)
 
@@ -181,7 +183,7 @@ def clock(rec):
         if datetime.datetime.now().strftime('%H:%M') == num:
             print("DESPIERTA!!!")
             mixer.init()
-            mixer.music.load("auronplay-alarma.mp3")
+            mixer.music.load("./audio/auronplay-alarma.mp3")
             mixer.music.play()
         else:
             continue
@@ -480,7 +482,7 @@ def give_me_name():
     name = name.strip()
     talk(f"Bienvenido {name}")
     try:
-        with open("name.txt", 'w') as f:
+        with open("./txt/name.txt", 'w') as f:
             f.write(name)
     except FileNotFoundError:
         file = open("name.txt", 'w')
