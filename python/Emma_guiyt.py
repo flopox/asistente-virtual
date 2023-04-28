@@ -9,12 +9,13 @@ import datetime                         #pip install datetime
 import keyboard                         #pip install keyboard
 import cam                              #importamos el archivo cam.py
 import os
+import pymongo                          #pip install pymongo
 from tkinter import *
 from PIL import Image, ImageTk
 from pygame import mixer                #pip install pygame --pre
 import threading as tr
 import whatsapp as whapp
-import serial as ser
+import serial as ser                    #pip install serial
 
 main_window = Tk()
 main_window.title("Emma asistente virtual")
@@ -502,10 +503,10 @@ def thread_hello():
 
 thread_hello()
 
-button_voice_mx = Button(main_window, text="Voz México", fg="white", bg="#45a247",
+button_voice_mx = Button(main_window, text="Voz Español", fg="white", bg="#45a247",
                          font=("Arial", 10, "bold"), command=mexican_voice)
 button_voice_mx.place(x=625, y=80, width=100, height=30)
-button_voice_es = Button(main_window, text="Voz España", fg="white", bg="#f12711",
+button_voice_es = Button(main_window, text="Voz Inglés", fg="white", bg="#f12711",
                          font=("Arial", 10, "bold"), command=spanish_voice)
 button_voice_es.place(x=625, y=115, width=100, height=30)
 
